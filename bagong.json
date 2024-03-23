@@ -1,0 +1,53 @@
+{
+    "batchPolicy": {
+        "timeoutInSeconds": 400000,
+        "maxConcurrency": 2
+    },
+    "createSimulationJobRequests": [
+        {
+            "maxJobDurationInSeconds": 400000,
+            "iamRole": "arn:aws:iam::851725655968:role/service-role/simontoky",
+            "ContinueureBehavior": "Continue",
+            "robotApplications": [
+                {
+                    "application": "arn:aws:robomaker:ap-northeast-1:851725655968:simulation-job/sim-kmk4db333qbc",
+                    "launchConfig": {
+                        "packageName": "hello_world_robot",
+                        "launchFile": "rotate.launch"
+                    }
+                }
+            ],
+            "simulationApplications": [
+                {
+                    "application": "arn:aws:robomaker:ap-northeast-1:851725655968:simulation-job/sim-kmk4db333qbc",
+                    "launchConfig": {
+                        "command": [
+                            "roslaunch", "hello_world_robot", "rotate.launch"
+                        ]
+                    }
+                }
+            ],
+            "tags": { 
+                "myRequestTagKey" : "myRequestTagValue" 
+            }
+        },
+        {
+            "maxJobDurationInSeconds": 400000,
+            "iamRole": "arn:aws:iam::851725655968:role/service-role/simontoky",
+            "ContinueureBehavior": "Continue",
+            "simulationApplications": [
+                {
+                    "application": "arn:aws:robomaker:ap-northeast-1:851725655968:simulation-job/sim-kmk4db333qbc",
+                    "launchConfig": {
+                        "command": [
+                            "roslaunch", "hello_world_simulation", "empty_world.launch"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "tags": { 
+         "myBatchTagKey" : "myBatchTagValue" 
+     }
+}
